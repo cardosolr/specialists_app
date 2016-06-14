@@ -20,6 +20,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @specialities = Speciality.all
   end
 
   # POST /employees
@@ -43,6 +44,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update(employee_params)
+        @specialities = Speciality.all
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
@@ -70,6 +72,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name)
+      params.require(:employee).permit(:name, :speciality_ids => [])
     end
 end
