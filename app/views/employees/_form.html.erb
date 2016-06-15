@@ -25,9 +25,7 @@
 
   <div class="form-group">
     <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %><br>
-    <div class="col-lg-10">
-    <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name ) %>
-    </div>
+    <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name)%>
   </div>
   <div class="col-lg-10">
     <%= link_to "Or create specialty", new_speciality_path %>
