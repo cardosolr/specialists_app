@@ -19,12 +19,14 @@
         <td><%= employee.name %></td>
         <td>
           <% employee.specialities.each do |speciality| %>
-          &rdquo;<%= speciality.name %>&rdquo;&nbsp;
+          &rdquo;<%= speciality.name %>&rdquo;;&nbsp;
         <% end %>
         </td>
-        <td><%=l employee.created_at %></td>
+        <td><%= formatDate(employee.created_at, false) %></td>
 
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      employee_path(employee), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_employee_path(employee), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -40,4 +42,4 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_employee_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-default' %>

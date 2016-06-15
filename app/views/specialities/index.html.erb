@@ -16,8 +16,10 @@
       <tr>
         <td><%= link_to speciality.id, speciality_path(speciality) %></td>
         <td><%= speciality.name %></td>
-        <td><%=l speciality.created_at %></td>
+        <td><%= formatDate(speciality.created_at, false) %></td>
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      speciality_path(speciality), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_speciality_path(speciality), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -33,4 +35,4 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_speciality_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-default' %>

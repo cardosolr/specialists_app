@@ -37,9 +37,16 @@
     <![endif]-->
   </head>
   <body>
-  	<%= render 'header' %>
-    <%= yield %>
-    <%= render 'footer' %>
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          	<%= render 'header' %>
+            <%= yield %>
+            <%= render 'footer' %>
+        </div>
+      </div>
+  </div>
   </body>
   </html>
     
