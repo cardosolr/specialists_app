@@ -21,16 +21,22 @@
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
     <%=f.error_span(:name) %>
-  </div>
+   </div> 
 
   <div class="check">
     <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %><br>
     <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name)%>
   </div>
+  <!--
   <div class="col-lg-10">
     <%= link_to "Or create specialty", new_speciality_path %>
   </div>
-
+-->
+<br>
+    <%= f.fields_for :specialities do |ff| %>
+    <%= render 'specialities_fields', ff: ff %>
+    <% end %>
+ 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>

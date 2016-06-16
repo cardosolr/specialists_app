@@ -17,6 +17,7 @@ class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
     @specialities = Speciality.all
+    @employee.specialities.build
   end
 
   # GET /employees/1/edit
@@ -73,6 +74,7 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :speciality_ids => [])
+      #params.require(:employee).permit(:name, specialities_attributes: [:id, :name], :speciality_ids => [])
+      params.require(:employee).permit(:name, :speciality_ids => [], specialities_attributes: [:id, :name, :_destroy])
     end
 end
