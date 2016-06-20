@@ -16,3 +16,9 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+
+ $(document).ready(function(){
+  $("#addNewSpeciality").click(function(){
+    $("#specialityForm").append($("#newSpecialityForm").html());
+  });
+});

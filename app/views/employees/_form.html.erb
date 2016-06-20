@@ -33,9 +33,13 @@
   </div>
 -->
 <br>
+    
     <%= f.fields_for :specialities do |ff| %>
     <%= render 'specialities_fields', ff: ff %>
     <% end %>
+
+     <!--  <a href="javascript:;" id="addNewSpeciality">Add New Tag</a> -->
+     <%= link_to_add_specialities "Add specialty", f, :specialities %> 
  
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
