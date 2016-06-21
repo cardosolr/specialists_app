@@ -17,8 +17,9 @@
 //= require_tree .
 //= require jquery_nested_form
 
- $(document).ready(function(){
-  $("#addNewSpeciality").click(function(){
-    $("#specialityForm").append($("#newSpecialityForm").html());
-  });
+$(function() {
+    $('form[data-update-target]').on('ajax:completed', function(evt, data) {
+        var target = $(this).data('update-target');
+        $('#' + target).html(data.responseText);
+    });
 });
