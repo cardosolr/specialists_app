@@ -67,23 +67,24 @@ class EmployeesController < ApplicationController
   end
 
   def upspec
-    @speciality = Speciality.new
-    @specialities = Speciality.build
-    @specialities = Speciality.all
-    #@employee.specialities.build
+    redirect_to sovem
+  end
+
+  def sovem
+    puts "isso aqui ta uma merda quero me"
+    @employee = Employee.new(employee_params)
+    @speciality = Speciality.new(speciality_param)
+    #@specialities = Speciality.all
 
     respond_to do |format|
       if @speciality.save
-        format.html { redirect_to new_employee_path, notice: 'Add.' }
+        format.html { redirect_to new_employee_path, notice: 'Speciality Added!' }
         format.json { render :new, status: :created, location: @employee }
       else
         format.html { render :edit }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end 
     end
-    #render 'new'
-    #render :partial => 'new'
-    #, :content_type => 'text/html'
   end 
 
   private
@@ -99,6 +100,8 @@ class EmployeesController < ApplicationController
     end
 
     def speciality_param
-      params.require(:speciality).permit(specialities_attributes: [:id, :name, :_destroy])
+      params.require(:employee).permit(specialities_attributes: [:id, :name, :_destroy])
     end
+
+
 end

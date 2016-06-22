@@ -1,4 +1,3 @@
-<%= form_tag(:remote => true, :'data-update-target' => 'update-container') do %>
 <div id="update-container">
 <div class="check">
     <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %>
@@ -11,13 +10,7 @@
 <%= f.fields_for :specialities do |ff| %>
 <%= render 'specialities_fields', ff: ff %>
 <% end %>
-<%= link_to_add_specialities "Add speciality", f, :specialities %> 
+<%= link_to_add_specialities "New speciality", f, :specialities %> 
 <br />
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-
-<!--<%= button_to "Add Specialties",:action => :upspec, :class => 'btn btn-default' %> -->
-                      
- <%= link_to "Add Specialties" ,:action => :upspec %> 
- </div></div>
-<% end %>
+<br />
+ <%= link_to "Create Specialty", :action => :upspec %> 
