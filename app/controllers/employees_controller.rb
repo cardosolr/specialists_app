@@ -66,27 +66,6 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def upspec
-    redirect_to sovem
-  end
-
-  def sovem
-    puts "isso aqui ta uma merda quero me"
-    @employee = Employee.new(employee_params)
-    @speciality = Speciality.new(speciality_param)
-    #@specialities = Speciality.all
-
-    respond_to do |format|
-      if @speciality.save
-        format.html { redirect_to new_employee_path, notice: 'Speciality Added!' }
-        format.json { render :new, status: :created, location: @employee }
-      else
-        format.html { render :edit }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end 
-    end
-  end 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
@@ -95,7 +74,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      #params.require(:employee).permit(:name, specialities_attributes: [:id, :name], :speciality_ids => [])
       params.require(:employee).permit(:name, :speciality_ids => [], specialities_attributes: [:id, :name, :_destroy])
     end
 

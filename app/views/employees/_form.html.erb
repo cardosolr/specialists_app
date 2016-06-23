@@ -23,19 +23,6 @@
     <%=f.error_span(:name) %>
    </div> 
 
-<!--
-  <div class="check">
-    <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %><br>
-    <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name)%>
-  </div>
-<br />
-    
-    <%= f.fields_for :specialities do |ff| %>
-    <%= render 'specialities_fields', ff: ff %>
-    <% end %>
-    <%= link_to_add_specialities "Add specialty", f, :specialities %> 
-    <br />
--->
     <div id="updateform">
       <%= render 'checkpartial', f: f %>
     </div> 

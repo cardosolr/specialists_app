@@ -1,16 +1,14 @@
 <div id="update-container">
-<div class="check">
-    <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %>
-    <br>
-    <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name)%>
-</div>
+	<div class="check">
+	    <%= f.label "Select Specialties", :class => 'control-label col-lg-2' %>
+	    <br>
+	    <%= collection_check_boxes(:employee, :speciality_ids, @specialities, :id, :name)%>
+	</div>
 </div>
 <br />
     
 <%= f.fields_for :specialities do |ff| %>
-<%= render 'specialities_fields', ff: ff %>
+	<%= render 'specialities_fields', ff: ff %>
 <% end %>
 <%= link_to_add_specialities "New speciality", f, :specialities %> 
 <br />
-<br />
- <%= link_to "Create Specialty", :action => :upspec %> 
